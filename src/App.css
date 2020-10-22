@@ -48,6 +48,14 @@ html {
     grid-area: 2/4/6/5;
   }
 
+  .equal-sign:hover {
+    background-color: #2e8692;
+  }
+
+  .function-key:hover {
+    background-color: #2e8692;
+  }
+
   .function-key {
     background-color: #2e86c0;
     border-color: #337cac;
@@ -58,4 +66,8 @@ html {
     background-color: #f0595f;
     border-color: #b0353a;
     color: #fff;
+  }
+
+  .delete-key:hover {
+    background-color: #b0353a;
   }

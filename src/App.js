@@ -4,18 +4,34 @@ import CalculatorLayout from "./components/CalculatorLayout";
 
 import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Calculator</p>
-      </header>
-      <main>
-        <CalculatorLayout />
-      </main>
-      <footer></footer>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      result: "nula"
+    }
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log("click")
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>Calculator</p>
+        </header>
+        <main>
+          <CalculatorLayout result={this.state.result} />
+        </main>
+        <footer></footer>
+      </div>
+    );
+  }
 }
 
 export default App;

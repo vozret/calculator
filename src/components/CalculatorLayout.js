@@ -3,6 +3,10 @@ import React from "react";
 import Button from './Button';
 
 class CalculatorLayout extends React.Component {
+  handleClick(i) {
+    console.log(i)
+  }
+
   renderButton(value) {
     let className = "calculator-button";
     if (value === '='){
@@ -17,14 +21,14 @@ class CalculatorLayout extends React.Component {
       console.log(value + ' is a number')
     }
     return(
-      <Button value={value} className={className}/>
+      <Button name={value} className={className} onClick={() => this.handleClick(value)}/>
     );
   }
 
   render() {
     return (
       <div className="calculator-layout">
-        <input type="text" className="calculator-display" value="0" />
+        <input type="text" className="calculator-display" value={this.props.result} />
         <div className="calculator-keys" >
           {this.renderButton("+")}
           {this.renderButton("-")}
