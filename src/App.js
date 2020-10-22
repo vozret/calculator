@@ -5,19 +5,6 @@ import CalculatorLayout from "./components/CalculatorLayout";
 import './App.css'
 
 class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      result: "nula"
-    }
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    console.log("click")
-  }
 
   render() {
     return (
@@ -26,7 +13,7 @@ class App extends React.Component {
           <p>Calculator</p>
         </header>
         <main>
-          <CalculatorLayout result={this.state.result} />
+          <CalculatorLayout />
         </main>
         <footer></footer>
       </div>

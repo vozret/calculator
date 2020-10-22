@@ -3,8 +3,26 @@ import React from "react";
 import Button from './Button';
 
 class CalculatorLayout extends React.Component {
-  handleClick(i) {
-    console.log(i)
+  constructor() {
+    super();
+
+    this.state = {
+      result: '',
+    }
+  }
+
+  handleClick(button) {
+    if(button === "=") {
+      console.log("you pressed the equal sign")
+    } else if (button === "AC") {
+      this.setState({
+        result: ""
+      });
+    } else {
+      this.setState({
+        result: this.state.result + button
+      });
+    }
   }
 
   renderButton(value) {
@@ -17,9 +35,6 @@ class CalculatorLayout extends React.Component {
     else if(isNaN(value)) {
       className += ' function-key';
     }
-    else {
-      console.log(value + ' is a number')
-    }
     return(
       <Button name={value} className={className} onClick={() => this.handleClick(value)}/>
     );
@@ -28,7 +43,7 @@ class CalculatorLayout extends React.Component {
   render() {
     return (
       <div className="calculator-layout">
-        <input type="text" className="calculator-display" value={this.props.result} />
+        <input type="text" className="calculator-display" value={this.state.result} />
         <div className="calculator-keys" >
           {this.renderButton("+")}
           {this.renderButton("-")}
