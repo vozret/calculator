@@ -13,10 +13,18 @@ class CalculatorLayout extends React.Component {
 
   handleClick(button) {
     if(button === "=") {
-      console.log("you pressed the equal sign")
+      this.setState({
+        result: (eval(this.state.result) || "" ) + ""
+      });
     } else if (button === "AC") {
       this.setState({
         result: ""
+      });
+    } else if (button === "CE") {
+      this.setState((prevState) => {
+        return {
+          result: prevState.result.slice(0,-1)
+        }
       });
     } else {
       this.setState({
@@ -29,7 +37,7 @@ class CalculatorLayout extends React.Component {
     let className = "calculator-button";
     if (value === '='){
       className += ' equal-sign';
-    }else if(value === 'AC') {
+    }else if(value === 'AC' || value === 'CE') {
       className += ' delete-key';
     } 
     else if(isNaN(value)) {
@@ -65,6 +73,8 @@ class CalculatorLayout extends React.Component {
           {this.renderButton("0")}
           {this.renderButton(".")}
           {this.renderButton("AC")}
+          {this.renderButton("CE")}
+
 
           {this.renderButton("=")}
         </div>
